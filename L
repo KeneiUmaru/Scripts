@@ -3742,7 +3742,31 @@ task.spawn(function()
 		wait(0.3)
 	end
 end)
-
+local CodeApi = {
+	'TantaiGaming',
+	'Axiore',
+	'Sub2Daigrock',
+	'SUB2NOOBMASTER123',
+	'StrawHatMaine',
+	'Sub2OfficailNobbie',
+	'SUN2GAMERROBOT_EXP1',
+	'THEGREATACE',
+	'BIGNEWS',
+	'FUDD10',
+	'fudd10_v2',
+	'Bluxxy',
+	'Starcodehero',
+	'JCWK',
+	'Magicbus',
+	'Enyu_is_pro',
+	'Sub2Fer999',
+	'kittgaming',
+	'SUB2GAMERROBOT_YT',
+	'SUB2GAMERROBOT_RESET1',
+	'SUB2UNKLEKIZARU',
+	'SUB2GAMERROBOT_RESET',
+}
+if type(CodeApi) ~= 'table' then CodeApi={}end
 _G.RedeemCodeLocalFastAutoFarm = false
 function AutoFarmLevel()
 	GetQuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title
@@ -4226,6 +4250,31 @@ task.spawn(function()
 		end
 	end
 end)
+function UseCode(Text)
+    game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
+end
+UseCode("TantaiGaming")
+UseCode("Axiore")
+UseCode("Sub2Daigrock")
+UseCode("SUB2NOOBMASTER123")
+UseCode("StrawHatMaine")
+UseCode("Sub2OfficialNoobie")
+UseCode("SUB2GAMERROBOT_EXP1")
+UseCode("THEGREATACE")
+UseCode("BIGNEWS")
+UseCode("FUDD10")
+UseCode("fudd10_v2")
+UseCode("Bluxxy")
+UseCode("Starcodeheo")
+UseCode("JCWK")
+UseCode("Magicbus")
+UseCode("Enyu_is_Pro")
+UseCode("Sub2Fer999")
+UseCode("kittgaming")
+UseCode('SUB2GAMERROBOT_YT')
+UseCode('SUB2GAMERROBOT_REUpdate1')
+UseCode('SUB2UNCLEKIZARU')
+UseCode('SUB2GAMERROBOT_REUpdate')
 
 Page1.Label({
 	Title = "Mob Aura"
@@ -7071,7 +7120,7 @@ elseif World3 then
 								if game:GetService("Workspace").Enemies:FindFirstChild("Dough King [Lv. 2300] [Raid Boss]") then
 									for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 										if _G.Settings.Main["Auto Dough V2"] and v.Name == "Dough King [Lv. 2300] [Raid Boss]" and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-											repeat wait()
+											repeat task.wait()
 												if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
 													Farmtween = toTarget(v.HumanoidRootPart.CFrame)
 												elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
@@ -7107,7 +7156,7 @@ elseif World3 then
 								if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter [Lv. 2200]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard [Lv. 2225]") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff [Lv. 2250]") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker [Lv. 2275]") then
 									for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 										if _G.Settings.Main["Auto Dough V2"] and (v.Name == "Cookie Crafter [Lv. 2200]" or v.Name == "Cake Guard [Lv. 2225]" or v.Name == "Baking Staff [Lv. 2250]" or v.Name == "Head Baker [Lv. 2275]") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-											repeat wait()
+											repeat task.wait()
 												if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
 													Farmtween = toTarget(v.HumanoidRootPart.CFrame)
 												elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
@@ -7116,17 +7165,17 @@ elseif World3 then
 													PosFarmCakePrince = v.HumanoidRootPart.CFrame
 													EquipWeapon(_G.Settings.Configs["Select Weapon"])
 													game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 0)
-													MagnetFarmCakePrince = true
+													StartMagnet = true
 													game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner", true)
 													game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CakePrinceSpawner")
 												end
 											until not _G.Settings.Main["Auto Dough V2"] or not v.Parent or v.Humanoid.Health <= 0
 											FastAttack = false
-											MagnetFarmCakePrince = false
+											StartMagnet = false
 										end
 									end
 								else
-									MagnetFarmCakePrince = false
+									StartMagnet = false
 									FastAttack = false
 									Questtween = toTarget(CFrame.new(-2077, 252, -12373))
 									if (CFrame.new(-2077, 252, -12373).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
@@ -7173,7 +7222,7 @@ elseif World3 then
 										end
 										for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 											if _G.Settings.Main["Auto Dough V2"] and string.find(v.Name,"Diablo") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-												repeat wait()
+												repeat task.wait()
 													if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
 														Farmtween = toTarget(v.HumanoidRootPart.CFrame)
 													elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
@@ -7188,7 +7237,7 @@ elseif World3 then
 												FastAttack = false
 											end
 											if _G.Settings.Main["Auto Dough V2"] and string.find(v.Name,"Urban") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-												repeat wait()
+												repeat task.wait()
 													if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
 														Farmtween = toTarget(v.HumanoidRootPart.CFrame)
 													elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
@@ -7203,7 +7252,7 @@ elseif World3 then
 												FastAttack = false
 											end
 											if _G.Settings.Main["Auto Dough V2"] and string.find(v.Name,"Deandre") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-												repeat wait()
+												repeat task.wait()
 													if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
 														Farmtween = toTarget(v.HumanoidRootPart.CFrame)
 													elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
@@ -7232,7 +7281,7 @@ elseif World3 then
 								if game:GetService("Workspace").Enemies:FindFirstChild("Candy Rebel [Lv. 2375]") or game:GetService("Workspace").Enemies:FindFirstChild("Sweet Thief [Lv. 2350]") or game:GetService("Workspace").Enemies:FindFirstChild("Chocolate Bar Battler [Lv. 2325]") or game:GetService("Workspace").Enemies:FindFirstChild("Cocoa Warrior [Lv. 2300]") then
 									for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 										if _G.Settings.Main["Auto Dough V2"] and (v.Name == "Candy Rebel [Lv. 2375]" or v.Name == "Sweet Thief [Lv. 2350]" or v.Name == "Chocolate Bar Battler [Lv. 2325]" or v.Name == "Cocoa Warrior [Lv. 2300]") and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-											repeat wait()
+											repeat task.wait()
 												-- if game.Players.LocalPlayer:DistanceFromCharacter(v.HumanoidRootPart.Position) > 3500 then
 												--     if Questtween then Questtween:Stop() end
 												--     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):GetState() == Enum.HumanoidStateType.Dead then return end
@@ -7247,15 +7296,15 @@ elseif World3 then
 													PosFarmCoco = v.HumanoidRootPart.CFrame
 													EquipWeapon(_G.Settings.Configs["Select Weapon"])
 													game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 0)
-													MagnetFarmCoco = true
+													StartMagnet = true
 												end
 											until not _G.Settings.Main["Auto Dough V2"] or not v.Parent or v.Humanoid.Health <= 0
 											FastAttack = false
-											MagnetFarmCoco = false
+											StartMagnet = false
 										end
 									end
 								else
-									MagnetFarmCoco = false
+									StartMagnet = false
 									FastAttack = false
 									Questtween = toTarget(CFrame.new(620.6344604492188, 78.93644714355469, -12581.369140625))
 									if (CFrame.new(620.6344604492188, 78.93644714355469, -12581.369140625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
@@ -8441,17 +8490,17 @@ Page3.Dropdown({
 })
 
 coroutine.wrap(function()
-	game:GetService('RunService').RenderStepped:Connect(function()
+	while task.wait() do
 		local ac = CombatFrameworkR.activeController
 		if ac and ac.equipped then
 			if FastAttack and _G.Settings.Configs["Fast Attack"] then
 				AttackFunction()
 				if _G.Settings.Configs["Fast Attack Type"] == "Normal" then
-					if tick() - cooldownfastattack > .9 then wait(.1) cooldownfastattack = tick() end
+					if tick() - cooldownfastattack > .9 then task.wait(.1) cooldownfastattack = tick() end
 				elseif _G.Settings.Configs["Fast Attack Type"] == "Fast" then
 			    
 				elseif _G.Settings.Configs["Fast Attack Type"] == "Slow" then
-					if tick() - cooldownfastattack > .3 then wait(.7) cooldownfastattack = tick() end
+					if tick() - cooldownfastattack > .3 then task.wait(.7) cooldownfastattack = tick() end
 				end
 			elseif FastAttack and _G.Settings.Configs["Fast Attack"] == false then
 				if ac.hitboxMagnitude ~= 55 then
@@ -8460,7 +8509,7 @@ coroutine.wrap(function()
 				ac:attack()
 			end
 		end
-	end)
+	end
 end)()
 
 Page3.Line()
